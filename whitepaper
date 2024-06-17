@@ -1,0 +1,105 @@
+Tabby Token: White Paper
+
+Abstract
+Tabby Token is a community-driven, fun cryptocurrency project designed for novelty and meme purposes. It's not an investment, it won't make you rich. What it will do is get you working with your cool Chrome wallet extensions and give you a fun way to earn tokens and collect NFTs. With a focus on transparency, fairness, and community engagement, Tabby Token aims to provide a unique and enjoyable experience for crypto enthusiasts and collectors. This white paper outlines the vision, features, and mechanics of the Tabby Token project, detailing its tokenomics, distribution model, and future roadmap.
+
+Introduction
+In the realm of crypto, the role of honesty, community and fairness is important. Tabby Token is built on these principles. The project also features a collection of Tabby NFTs, adding a layer of engagement and value for the community.
+
+Vision
+Tabby Token envisions a transparent and inclusive ecosystem where every participant has an equal opportunity to earn and collect tokens. The project seeks to create a fun and engaging platform that appeals to both seasoned crypto users and newcomers alike.
+
+Tokenomics
+Mint Fee: 0 You pay only gas cost for transaction.
+Initial Supply: 0 tokens
+Max Total Supply: 1x10^18
+
+Distribution Model
+Tabby Token employs a phased minting mechanism that gradually reduces the maximum token issuance per viewer over a four-year period. This approach ensures a supply as a function of how popular the site is, fostering long-term stability, supply and incentive for users to mint tokens early to earn the maximum amount for their time on the site.
+
+Minting Phases
+Phase 1: Starts at 12 tokens per block, per viewer which is about 1 per second.
+Phase 2-998: Gradually decreases to 1 token every 300 blocks over 10,512,000 blocks (~4 years)
+Phase 999: Minting continues at 1 token every 300 blocks
+
+The token distribution is designed to be accessible, fair and transparent, with no private sales, presales, ICOs, IEOs, or IDOs. There is no premine, no developer wallet, and no team tokens. This ensures that every participant has an equal opportunity to acquire Tabby Tokens. Token emission is on a per viewer basis, so for example, if you have the site open, and you are in the beginning of the first phase, you can earn one token for every second you're on the page. If another viewer is also watching, they too can also earn one token for every second they're on the page if the contract is early in Phase 1.
+
+Community-Driven
+The project is entirely community-driven, with decisions and developments guided by community input and participation. This fosters a sense of ownership and involvement among token holders.
+
+MEME Token
+Tabby Token is primarily designed for novelty purposes, embracing the fun and light-hearted side of the crypto world. It is a MEME token aimed at providing entertainment and engagement for its community.
+
+Hard Cap
+The total supply of Tabby Tokens is capped at 1 quintillion, ensuring in a galactic sense, some amount of scarcity and broad, global distribution.
+
+NFTs
+In addition to Tabby Tokens, the project features a collection of Tabby NFTs, each with unique characteristics and attributes. These NFTs can be earned and collected by community members, adding an extra layer of engagement and value. The NFTs earns a 3.5% royalty on all secondary sales, which is distributed to the Tabby Token team to pay for stuff like servers. There is also a small fee on NFT minting currently set to 0.00005ETH which is about $0.20 at the time of this writing. There is no fee or royalty on the Tabby Token minting, only the small fee for the NFT minting which is used to pay for costs associated with the project.
+
+NFT Collection
+The Tabby NFT collection includes various themes and designs, each representing different aspects of the crypto world.
+
+Examples include:
+
+• New Cat on the Block
+• Crypto Conqueror
+• Altcoin Aficionado
+• HODL Hero
+• DeFi Devotee
+• Blockchain Buccaneer
+• Staking Sovereign
+• Ledger Legend
+• NFT Navigator
+• Token Tycoon
+• Satoshi Seeker
+
+These NFTs are stored on IPFS, ensuring their security and immutability. The above list is not complete. In total there are 27 unique NFTs for various levels. There are some easter eggs..
+
+Roadmap
+
+Phase 1: Launch
+Launch Tabby Token with fair distribution model
+Release initial set of Tabby NFTs
+Build and engage community through social media and forums
+
+Phase 2: Expansion
+Introduce additional Tabby NFTs
+Develop and launch community-driven initiatives and events
+Explore partnerships and collaborations with other projects
+
+Phase 3: Maturity
+Maintain and grow the community
+Ensure the long-term stability and value of Tabby Token
+Continue to innovate and introduce new features based on community feedback
+
+Conclusion
+Tabby Token is a unique and engaging project that embodies the principles of fairness, transparency, and community. By providing a fair-launch token with a phased minting model and a collection of unique NFTs, Tabby Token offers a fun and rewarding experience for crypto enthusiasts and collectors. Join us on this exciting journey and become a part of the Tabby Token community.
+
+
+Disclaimer
+Tabby Token is a novelty project and is intended for entertainment purposes only. It is not an investment product and should not be treated as such. Participants should engage with the project at their own discretion and risk.
+
+Project notes are as follows:
+ 
+• Fair Launch
+• No Premine
+• No Dev Wallet
+• No Team Tokens
+• No Private Sale
+• No Presale
+• No ICO
+• No IEO
+• No IDO
+• No Rug Pull
+• Hard Cap
+• Community Driven
+• MEME Token
+• Novelty Purposes Only
+
+Contact Information
+For more information and updates, please visit our website and join our community on social media.
+
+
+Base: thetabby.cd.id
+Support Address: 0x0487aF37d19fbdf49E28f8AB721E591eEB95569B
+
