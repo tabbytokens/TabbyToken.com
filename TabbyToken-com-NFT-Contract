@@ -1,0 +1,141 @@
+// SPDX-License-Identifier: MIT
+// Compatible with OpenZeppelin Contracts ^5.0.0
+
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/common/ERC2981.sol";
+
+contract Tabby is ERC721, ERC721URIStorage, ERC721Burnable, Ownable, ERC2981 {
+    uint256 private _nextTokenId;
+    string[] private validCIDs;
+    address private _royaltyReceiver;
+    uint256 private _mintingFee;
+
+    event MintingFeeSet(uint256 mintingFee);
+    event ReceivedValue(uint256 value);
+
+    constructor(address initialOwner, address royaltyReceiver, uint256 initialMintingFee)
+        ERC721("TabbyNFT", "NFTABBY")
+        Ownable(initialOwner)
+        payable
+    {
+        _royaltyReceiver = royaltyReceiver;
+        _mintingFee = initialMintingFee;
+        emit MintingFeeSet(_mintingFee);
+
+        // Add valid CIDs
+        validCIDs.push("ipfs://QmSjrRsvBC91n2US4HDuZGv6CdFRDi1XnybnZBxmyLBwwu"); // Altcoin Aficionado
+        validCIDs.push("ipfs://QmZwLgT8HvED93ob2NkhoisLGoW3Ud6PaQJdS1gXSbRAK7"); // Blockchain Baron
+        validCIDs.push("ipfs://QmWcTyoWncxp6XXLRXhA5MgtwLpetwnHwVvA2dwo6grzS3"); // Blockchain Buccaneer
+        validCIDs.push("ipfs://Qmbp9Nj7jqq28Dk4A7fRo16iaxPqhMwe9dGyAKCMgMY7Rw"); // Crypto Cartographer
+        validCIDs.push("ipfs://QmfPncmRhtG21rcAm46qMTqFxbLuA1Hp3nbKecLkND4TJy"); // Crypto Commander
+        validCIDs.push("ipfs://QmQWLuAmFN5JibR7NSoZCcX6hsgt14c8ebdDSoB3LCAv6W"); // Crypto Conqueror
+        validCIDs.push("ipfs://QmRnQzSTkEGcggQpC7m79BpVUSB8dJKeYsaPbEPLvTkTo3"); // Crypto Crusader
+        validCIDs.push("ipfs://QmWMRExm1ug1j49E47nU2svtBdXFv55VAgMdkcMQ3ZePcm"); // DAO Defender
+        validCIDs.push("ipfs://QmbLZ81QhMQiBDhKSAv6be7sT2bVeSfQr3EHu3n3u6SkDg"); // Decentralized Diplomat
+        validCIDs.push("ipfs://QmRn9n9bCD4tPRSM8mrMtxqrvbvJrDFWbCkHBzL7pVA3B5"); // DeFi Devotee
+        validCIDs.push("ipfs://QmVn7nntV7aPWNP13Uu6Tyj6isy6sJRmiTJyojzVyD359a"); // Halving Historian
+        validCIDs.push("ipfs://QmUGJp1KkfSEhcX8HnnrLHgN6J58rbHQAW2ro38dKFC1dB"); // HODL Hero
+        validCIDs.push("ipfs://QmcvkzU94Db1GahrNeUsuiTJkH6Sp1erpNxDGXuxCbQqqy"); // Immutable Influencer
+        validCIDs.push("ipfs://QmdwYdubFeWGug1VvuRfNJJZy6RE1KmcfyEaMxRRanuSPb"); // Ledger Legend
+        validCIDs.push("ipfs://QmXqha9umGLTWGCoQuNKpmTJQUSXtwzGKxfNAXTJpAmSHn"); // New Cat on the Block
+        validCIDs.push("ipfs://QmTzgzNzZbhTv15i3VPzdewHjoemVoYMuACn9H7bFXUdbQ"); // NFT Navigator
+        validCIDs.push("ipfs://QmUBShHpuJskhm6mpCKDjvdH3a3mJsYDtzpkPUFcDwwsz9"); // NFT Nurturer
+        validCIDs.push("ipfs://Qmf8qcJc8XcJBEgJR9qbhARdkevp1At4yyZcuiaaGP3Zha"); // Protocol Pioneer
+        validCIDs.push("ipfs://Qmd33EgPjpDW2PGtuAJmaoUz4oCMJ5ZkR9nBGDfLcTX7RH"); // Satoshi Samurai
+        validCIDs.push("ipfs://QmVC9E8VDWKjVj8wXtWduichngQ82QNWhrLxuGQW5T8Hqm"); // Satoshi Seeker
+        validCIDs.push("ipfs://QmS9wu8mFqn51SwWR8mHdaXYzYTW6FLsq7XtZq8DZA8gfg"); // Staking Sovereign
+        validCIDs.push("ipfs://QmQrDiaySFQptypv8TxWDuvgNMHt5X6QsmbEcqaubuX7Uu"); // Tabby Token Mascot
+        validCIDs.push("ipfs://QmddoeH6kRwTKNYdnaMDQ4H5qVEepg1qwpzipxxCzoz1yS"); // Tabby Token Mascot Monocle Edition
+        validCIDs.push("ipfs://QmdiAEB1K3RzZcFc3nJ1JaDfWQy5RbjKWvnR6hhWNzWTRe"); // Token Titan
+        validCIDs.push("ipfs://QmTM8o88HBCGHihV2RJjVA31Ht4m2B1szwhUezzfTHXELo"); // Token Tycoon
+        validCIDs.push("ipfs://QmSm6uvcwnkVLpNz2q2dKHQsLjoc4n9xEk8NT8EG1fMocw"); // Underwater Cat Monocle Edition
+        validCIDs.push("ipfs://QmYBrvu4DmArYLi5P5m9UYECcWWYtCwdpgWkBv3QMJGJ1Y"); // Web3 Warrior
+        validCIDs.push("ipfs://QmU3xDzpuTymZAvJkM5CyGao1x4ewoDfELCtEBW6q9dfY4"); // Web3 Wizard
+    }
+
+    // Function to receive Ether. msg.data must be empty
+    receive() external payable {
+        emit ReceivedValue(msg.value);
+    }
+
+    // Fallback function is called when msg.data is not empty
+    fallback() external payable {
+        emit ReceivedValue(msg.value);
+    }
+
+ function safeMint(address to, string memory uri) public payable {
+    require(_isValidCID(uri), "Invalid CID");
+    emit ReceivedValue(msg.value);
+    require(msg.value >= _mintingFee, "Insufficient payment for minting fee");
+
+    uint256 tokenId = _nextTokenId++;
+    _safeMint(to, tokenId);
+    _setTokenURI(tokenId, uri);
+    _setTokenRoyalty(tokenId, _royaltyReceiver, 350); // Set 3.5% royalty (in basis points)
+}
+
+
+    // Internal function to check if a CID is valid
+    function _isValidCID(string memory uri) internal view returns (bool) {
+        for (uint256 i = 0; i < validCIDs.length; i++) {
+            if (keccak256(bytes(validCIDs[i])) == keccak256(bytes(uri))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    // Set a new royalty receiver
+    function setRoyaltyReceiver(address newRoyaltyReceiver) external onlyOwner {
+        _royaltyReceiver = newRoyaltyReceiver;
+    }
+
+    // Withdraw collected minting fees
+    function withdrawMintingFees() external onlyOwner {
+        payable(owner()).transfer(address(this).balance);
+    }
+
+    // Set a new minting fee
+    function setMintingFee(uint256 newMintingFee) external onlyOwner {
+        _mintingFee = newMintingFee;
+    }
+
+    function getMintingFee() public view returns (uint256) {
+        return _mintingFee;
+    }
+
+    // Override supportsInterface
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(ERC721, ERC721URIStorage, ERC2981)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
+    }
+
+    // Override tokenURI
+    function tokenURI(uint256 tokenId)
+        public
+        view
+        override(ERC721, ERC721URIStorage)
+        returns (string memory)
+    {
+        return super.tokenURI(tokenId);
+    }
+
+    // Override royaltyInfo
+    function royaltyInfo(uint256 tokenId, uint256 salePrice)
+        public
+        view
+        override
+        returns (address receiver, uint256 royaltyAmount)
+    {
+        return (ERC2981.royaltyInfo(tokenId, salePrice));
+    }
+}
